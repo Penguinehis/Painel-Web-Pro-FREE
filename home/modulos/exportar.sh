@@ -1,0 +1,11 @@
+./SshturboMakeAccount.sh leandro 123456 30 1
+./SshturboMakeAccount.sh Arthur 123456 24 1
+./SshturboMakeAccount.sh Felipe007 123456 23 1
+./SshturboMakeAccount.sh luizin64 123456 882 20
+./SshturboMakeAccount.sh jheni 123456 940 1
+./SshturboMakeAccount.sh felipe 123456 20 1
+./SshturboMakeAccount.sh bernardo 123456 17 1
+./SshturboMakeAccount.sh wincoder 123456 956 3
+./SshturboMakeAccount.sh edevaldo 123456 13 1
+./SshturboMakeAccount.sh Mythscrow 123456 161 1
+./SshturboMakeAccount.sh teste07 123456 -6 1

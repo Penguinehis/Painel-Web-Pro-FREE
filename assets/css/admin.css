@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #ecf0f3;
+}
+
+.side_bar {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    height: 100vh;
+    background: #ecf0f3;
+    padding: 12px;
+    box-shadow: 3px 3px 5px #ccc;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    /* Habilita a rolagem vertical apenas para o conteúdo */
+    overflow-x: hidden;
+    /* Desabilita a rolagem horizontal */
+    z-index: 999;
+}
+
+.side_bar .title {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.side_bar .title .logo {
+    font-size: 27px;
+    font-weight: 600;
+    color: #31344b;
+}
+
+.side_bar ul {
+    margin-top: 10px;
+    list-style: none;
+}
+
+.side_bar ul a {
+    color: #31344b;
+    text-decoration: none;
+    display: block;
+    margin-top: 12px;
+    width: 210px;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 25px;
+    border-radius: 6px;
+    box-shadow: -3px -3px 7px #ffffff,
+        3px 3px 5px #ceced1;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.side_bar ul i {
+    margin-right: 10px;
+}
+
+.media_icons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.media_icons a {
+    position: relative;
+    margin: 0 4px;
+    font-size: 17px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    box-shadow: -3px -3px 7px #ffffff,
+        3px 3px 5px #ceced1;
+    transition: all 0.3s ease;
+}
+
+.side_bar ul a:hover:before,
+.media_icons a:hover:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset -3px -3px 7px #ffffff,
+        inset 3px 3px 5px #ceced1;
+}
+
+.side_bar ul a:hover:before {
+    border-radius: 6px;
+}
+
+.media_icons a:hover:before {
+    border-radius: 50%;
+}
+
+.side_bar ul a:hover {
+    color: #3498db;
+}
+
+.media_icons a:nth-child(1) {
+    color: #4267b2;
+}
+
+.media_icons a:nth-child(2) {
+    color: #1da1f2;
+}
+
+.media_icons a:nth-child(3) {
+    color: #e1306c;
+}
+
+.media_icons a:nth-child(4) {
+    color: #ff0000;
+}
+
+label {
+    font-size: 30px;
+    color: #31344b;
+    box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
+    height: 40px;
+    width: 50px;
+    border-radius: 15%;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 15px;
+    left: 250px;
+}
+
+label:hover {
+    box-shadow: inset -3px -3px 7px #ffffff,
+        inset 3px 3px 5px #ceced1;
+    color: #3498db;
+}
+
+#check {
+    display: none;
+}
+
+.bars {
+    position: absolute;
+    left: 20px;
+    top: 215px;
+}
+
+#check:checked~.side_bar {
+    left: 0;
+}
+
+/* Estilos para dispositivos móveis e menu lateral aberto */
+@media (max-width: 1200px) {
+    .cancel {
+        display: block;
+        position: fixed;
+        z-index: 999;
+    }
+}
+
+/* Estilos para telas maiores que 1200px */
+@media (min-width: 1201px) {
+    .cancel {
+        display: none;
+    }
+}
+
+/* Esconda o botão por padrão */
+.cancel {
+    display: none;
+}
+
+/* Exiba o botão quando o menu lateral estiver ativo */
+.side_bar.active .cancel {
+    display: block;
+    position: fixed;
+    z-index: 999;
+}
+
+
+
+/* Estilos padrão */
+
+/* ... código CSS existente ... */
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 1200px) {
+    .side_bar {
+        position: fixed;
+        left: -250px;
+        /* Esconda a barra lateral por padrão */
+        top: 0;
+        transition: none;
+        /* Remova a propriedade "transition" para desativar a transição */
+        z-index: 1100;
+        /* Defina um valor alto para que a barra lateral fique acima dos outros elementos */
+    }
+
+    .side_bar.expanded {
+        left: 0;
+        /* Exiba a barra lateral quando a classe "expanded" é adicionada */
+    }
+
+    #check {
+        display: none;
+        /* Oculte a caixa de seleção */
+    }
+
+    .main-content {
+        margin-left: 0;
+        position: relative;
+        /* Adicione essa propriedade para estabelecer um contexto de sobreposição */
+        z-index: 2;
+        /* Defina um valor menor para que o conteúdo principal fique acima da barra lateral */
+    }
+}
+
+
+/* Estilos para telas maiores que 1200px */
+@media (min-width: 1201px) {
+
+    /* Manter a barra lateral sempre visível */
+    .side_bar {
+        left: 0;
+    }
+
+    /* Ocultar o botão */
+    #check {
+        display: none;
+    }
+}
+
+
+
+
+.sidebar-container {
+    display: flex;
+}
+
+.side_bar {
+    width: 250px;
+    /* Defina a largura desejada para a barra lateral */
+    background-color: #f1f1f1;
+    /* Outros estilos de sua escolha */
+}
+
+.main-content {
+    flex-grow: 1;
+    /* Estilos para o conteúdo principal da página */
+    margin-left: 250px;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 1200px) {
+    .main-content {
+        margin-left: 0;
+        /* Volta ao normal, removendo a margem esquerda */
+    }
+}
+
+.modal-tit {
+    position: absolute;
+    left: 83px;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 1200px) {
+    .modal-tit {
+        left: 83px;
+        /* Estilos para dispositivos móveis aqui */
+    }
+}
+
+/* Estilos para telas maiores que 1200px */
+@media (min-width: 1201px) {
+    .modal-tit {
+        /* Remova o estilo de posicionamento para telas maiores que 1200px */
+        position: static;
+    }
+}
+
+.check-button {
+    display: block;
+    /* Exibição padrão do botão */
+}
+
+@media (min-width: 1201px) {
+    .check-button {
+        display: none;
+        /* Oculta o botão em telas maiores que 1200px */
+    }
+}
+
+.logo-img {
+    display: none;
+    max-width: 80%;
+    height: auto;
+    margin: auto;
+    width: 250px;
+
+}
+
+@media (max-width: 1200px) {
+    .logo-img {
+        display: block;
+    }
+}
+
+.menu-mobile {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .menu-mobile {
+        display: block;
+    }
+}
+
+
+/* Personalização de estilos */
+/* Define a cor de fundo do cabeçalho da tabela */
+.dataTables_wrapper thead th {
+    background-color: #f2f2f2;
+}
+
+/* Define a cor de fundo das células da tabela */
+.dataTables_wrapper tbody td {
+    background-color: #fff;
+}
+
+/* Define a cor do texto das células da tabela */
+.dataTables_wrapper tbody td {
+    color: #191c24;
+}
+
+/* Define a cor do texto dos cabeçalhos de coluna da tabela */
+.dataTables_wrapper thead th {
+    color: #555;
+}
+
+.link-cell {
+    width: 85%;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.navbar-toggler-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://i.imgur.com/hhELqX8.png');
+    /* Substitua pela imagem desejada */
+    background-size: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    transform: rotate(90deg);
+}
+
+.icon-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-aprovado {
+    background-color: #00cc66;
+    /* Cor para status "Aprovado" */
+    color: #fff;
+    /* Cor do texto para status "Aprovado" */
+}
+
+.btn-pendente {
+    background-color: #ff3333;
+    /* Cor para status "Pendente" e "Recusado" */
+    color: #fff;
+    /* Cor do texto para status "Pendente" e "Recusado" */
+}
+
+.bloco {
+    margin: 0 auto;
+    text-transform: uppercase;
+    width: 90%;
+
+    padding: 10px;
+}
+
+.bloco h1 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.bloco input {
+    height: 46px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.bloco button {
+    height: 46px;
+    width: 50px;
+    border-radius: 0px 5px 5px 0px;
+    background: #b519d4;
+    color: #eee;
+    border: none;
+}
+
+#timer {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+
+#snackbar {
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.info-text {
+    text-transform: none;
+    text-align: center;
+
+}

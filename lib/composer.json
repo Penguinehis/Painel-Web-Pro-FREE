@@ -1,0 +1,13 @@
+{
+    "name": "orzark/mp",
+    "description": "Site de vendas de produtos virtuais",
+    "authors": [
+        {
+            "name": "Ozark",
+            "email": "hg.96.lt@gmail.com"
+        }
+    ],
+    "require": {
+        "mercadopago/dx-php": "^1.8"
+    }
+}
